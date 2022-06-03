@@ -8,14 +8,14 @@
 </head>
 <body>
     
-    <!-- <div class="wrap">
+    <div class="wrap">
         <h3>회원정보</h3>
         <p>유저 번호: <span class="id"></span></p>
         <p>아이디: <span class="username"></span></p>
         <p>패스워드: <span class="password"></span></p>
         <p>이름: <span class="name"></span></p>
     </div>
- -->
+
     <script>
 
         const users = [
@@ -29,7 +29,7 @@
                 id: 1,
                 username: "yoji444",
                 password: "444",
-                name: "Insil"
+                name: "In-sil"
             },
             {
                 id: 2,
@@ -44,6 +44,17 @@
         // // *Q2: 고유값 1번 유저의 name을 콘솔로 찍기
         // console.log(users[1].name)
 
+        // // *Q3: 브라우저에 1번 유저의 회원정보 나타내기
+       
+        const userId = document.querySelector('.id');
+        const username = document.querySelector('.username')
+        const password = document.querySelector('.password');
+        const name = document.querySelector('.name');
+
+        userId.innerHTML = users[1].id
+        username.innerHTML = users[1].username
+        password.innerHTML = users[1].password
+        name.innerHTML = users[1].name
 
     </script>
 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+</head>
+<body>
+
+    <form>
+        <input type="text" placeholder="글을 입력해주세요.">
+        <button>등록하기!</button>
+    </form>
+    <br/>
+    <div class="comment_wrap"></div>
+
+    <script>
+
+    const formEl = document.querySelector('form');
+    const inputEl = document.querySelector('input');
+    const btnEl = document.querySelector('button');
+    // console.log(formEl, inputEl, btnEl);
+    const commentWarapEl = document.querySelector('.comment_wrap')
+
+    // *댓글창 만들기 순서
+    // 1.form태그 새로고침 없애기
+    // 2.input태그 입력값 가져오기
+    // 3.등록하기
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // =>태그가 가지고있는 기본 이벤트를 적용시키지 않음(ex.form태그,a태그 등)
+        // console.log('클릭');
+
+        // console.log( inputEl.value )
+        // // =>input태그에 작성한 내용을 가져옴
+
+        const inputValue = inputEl.value;
+        // console.log(inputValue);
+        inputEl.value = "";
+        // =>value값을 변수에 저장한 뒤 input value값을 빈값으로 변경
+
+        // commentWarapEl.innerHTML = inputValue;
+
+        // 3-1.댓글을 저장할 태그 생성
+        const hEl = document.createElement('h5');
+
+        // 3-2.생성한 태그 안쪽으로 value값 작성
+        hEl.innerHTML = inputValue;
+        // console.log(hEl);
+
+        // 3-3.comment_wrap 자식으로 생성한 태그 넣기
+        commentWarapEl.appendChild(hEl);
+        alert('댓글등록 완료!');
+        
+    }
+
+    formEl.addEventListener('submit', handleSubmit);
+    // =>폼태그 제어 시 이벤트를 반드시 폼태그한테 적용할 것
+
+    </script>
+    
+</body>
+</html>
